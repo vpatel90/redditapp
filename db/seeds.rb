@@ -14,7 +14,11 @@
   end
 end
 
-value = [1,1,-1]
+value = [1,1,1,-1]
 1000.times do
   Vote.create(user_id:rand(1..User.count), link_id:rand(1..Link.count), value:value.sample)
+end
+
+500.times do
+  Comment.create(user_id:rand(1..User.count), link_id:rand(1..Link.count), body:Faker::Hipster.sentence(12,false,15))
 end
