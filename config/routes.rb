@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'votes/:id' => 'votes#create'
+  post 'links/:id/vote' => 'links#create_vote'
 
   resources :links
 

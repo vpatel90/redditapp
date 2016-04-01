@@ -7,14 +7,34 @@
 }
 
 .material-icons {
-  font-size: 16px;
-  margin: 8px 1px 0 1px;
+  font-size: 26px;
+  margin: 0px 1px;
+}
+
+.vote-count {
+  margin-right: 10px;
+}
+
+.link-title {
+  width: 90%;
 }
 
 .link-holder {
   padding-bottom: 10px;
 }
 
+.comment-container {
+  padding: 0 3%;
+  margin: 0 auto;
+  .comment-box {
+    .comment-text {
+      font-size: 0.75em;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 20px;
+      margin-top: 5px;
+    }
+  }
+}
 .user-name-time.blue-grey-text {
   padding-top: 30px;
 }

@@ -8,8 +8,8 @@
             Total Votes Given: <%= user.votes.count %></p>
       </div>
       <div class="card-action">
-        <a href="?request=links">User Links</a>
-        <a href="?request=comments">User Comments</a>
+        <a href="/users/<%= user.id %>?request=links">User Links</a>
+        <a href="/users/<%= user.id %>?request=comments">User Comments</a>
       </div>
     </div>
   </div>

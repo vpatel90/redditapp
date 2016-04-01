@@ -1,6 +1,24 @@
 
 <div class="show-page container">
 
-<%= render partial: 'linkbox',
+  <%= render partial: 'linkbox',
     locals: { link: @link }%>
+
+
+  <div class="comment-container">
+    <br>
+    <h5> Comments (<%= @link.total_comments %>)</h5>
+    <% @comments.each do |comment| %>
+      <div class="comment-box">
+        <a href="/users/<%= comment.user_id %>">
+          <small class="user-name-time blue-grey-text text-lighten-2">
+              <%= comment.user_name %> | <%= comment.time %>
+          </small>
+        </a>
+        <p class="comment-text"><%= comment.body %></p>
+      </div>
+    <% end %>
+    <%= paginate @comments %>
+
+  </div>
 </div>

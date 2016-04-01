@@ -1,0 +1,9 @@
+<%= form_for(@link) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "Robots who live your life!" %>
+  <%= f.label :url %>
+  <%= f.text_field :url, placeholder: "https://yourlink.com" %>
+  <%= f.label :user_id %>
+  <%= f.number_field :user_id, min: 1, max: User.count %>
+  <%= f.submit value: "Submit Link" %>
+<% end %>

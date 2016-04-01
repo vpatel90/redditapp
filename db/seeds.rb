@@ -9,16 +9,19 @@
 
 25.times do
   user = User.create(user_name:Faker::Internet.user_name, email:Faker::Internet.email)
-  rand(0..5).times do
-    Link.create(title:Faker::Hipster.sentence(4,false,7), url:'#', user_id:user.id)
-  end
+
 end
 
 value = [1,1,1,-1]
-1000.times do
-  Vote.create(user_id:rand(1..User.count), link_id:rand(1..Link.count), value:value.sample)
+25.times do
+  link = Link.create(title:Faker::Hipster.sentence(4,false,7), url:'#', user_id:rand(1..User.count))
+  rand(1..2).times do
+    vote = link.votes.build(user_id:rand(1..User.count), value:value.sample)
+    vote.save
+  end
 end
 
-500.times do
+
+1000.times do
   Comment.create(user_id:rand(1..User.count), link_id:rand(1..Link.count), body:Faker::Hipster.sentence(12,false,15))
 end

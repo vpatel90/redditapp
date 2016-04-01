@@ -1,7 +1,8 @@
 class Link < ActiveRecord::Base
 
   belongs_to :user
-  has_many :votes
+  has_many :votes, :as => :votable
+  has_many :comments
 
   validates :title, presence: true
   validates :url, presence: true
@@ -12,6 +13,10 @@ class Link < ActiveRecord::Base
 
   def user_name
     user.user_name
+  end
+
+  def total_comments
+    comments.count
   end
 
   def time
