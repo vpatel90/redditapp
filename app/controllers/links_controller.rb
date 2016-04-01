@@ -19,7 +19,6 @@ class LinksController < ApplicationController
     @link.url = params[:link][:url]
     @link.user_id = params[:link][:user_id]
 
-    Link.create(title: params[:link][:title], user_id: params[:link][:user_id])
     if @link.save
       redirect_to link_path(@link.id)
     else

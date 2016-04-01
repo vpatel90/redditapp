@@ -12,4 +12,8 @@ class Comment < ActiveRecord::Base
   def time
     "#{updated_at.strftime('%x')} on #{updated_at.strftime('%r')}"
   end
+
+  def total_votes
+    votes.where('value > 0').count - votes.where('value < 0').count
+  end
 end

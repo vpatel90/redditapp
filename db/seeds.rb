@@ -7,21 +7,27 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-25.times do
-  user = User.create(user_name:Faker::Internet.user_name, email:Faker::Internet.email)
-
+75.times do
+  User.create(user_name:Faker::Internet.user_name, email:Faker::Internet.email)
 end
 
 value = [1,1,1,-1]
-25.times do
-  link = Link.create(title:Faker::Hipster.sentence(4,false,7), url:'#', user_id:rand(1..User.count))
-  rand(1..2).times do
-    vote = link.votes.build(user_id:rand(1..User.count), value:value.sample)
+75.times do
+  link = Link.create(title:Faker::Hipster.sentence(4,false,7), url:'#', user_id:rand(2..User.count))
+  rand(0..50).times do
+    vote = link.votes.build(user_id:rand(2..User.count), value:value.sample)
     vote.save
   end
 end
 
 
 1000.times do
-  Comment.create(user_id:rand(1..User.count), link_id:rand(1..Link.count), body:Faker::Hipster.sentence(12,false,15))
+  comment = Comment.create(user_id:rand(1..User.count),
+                link_id:rand(1..Link.count),
+                body:Faker::Hipster.sentence(12,false,15))
+
+  rand(0..50).times do
+    vote = comment.votes.build(user_id:rand(2..User.count), value:value.sample)
+    vote.save
+  end
 end

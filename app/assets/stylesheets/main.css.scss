@@ -27,6 +27,11 @@
   padding: 0 3%;
   margin: 0 auto;
   .comment-box {
+    .comment-vote-count {
+      position: relative;
+      display: inline-block;
+      float: right;
+    }
     .comment-text {
       font-size: 0.75em;
       border-bottom: 1px solid #e0e0e0;

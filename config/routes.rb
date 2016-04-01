@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  post 'comments/:id/vote' => 'comments#create_vote'
   post 'links/:id/vote' => 'links#create_vote'
 
   resources :links
