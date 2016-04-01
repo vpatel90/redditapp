@@ -2,19 +2,7 @@
 
 <div class="container">
   <div class="row profile">
-    <div class="col s12 m6 l6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><%= @user.user_name %></span>
-          <p>Join Date: <%= @user.created_at.strftime('%x') %><br>
-              Total Submissions: <%= @user.links.count %> <br>
-              Total Votes Given: <%= @user.votes.count %></p>
-        </div>
-        <div class="card-action">
-          <a href="?request=links">User Links</a>
-          <a href="?request=comments">User Comments</a>
-        </div>
-      </div>
-    </div>
+    <%= render partial: 'userbox',
+        locals: { user: @user }%>
   </div>
 </div>

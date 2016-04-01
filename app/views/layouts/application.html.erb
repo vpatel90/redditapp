@@ -15,6 +15,9 @@
     <li><%= link_to "New Link", new_link_path %></li>
   </ul>
 </nav>
+<%= flash[:alert] %>
+<%= flash[:notice] %>
+
 <%= yield %>
 
 </body>

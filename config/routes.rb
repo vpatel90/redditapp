@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  get 'votes/:id' => 'votes#create'
+
   resources :links
 
   resources :users
