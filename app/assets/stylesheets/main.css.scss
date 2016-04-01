@@ -17,6 +17,7 @@
 
 .link-title {
   width: 90%;
+
 }
 
 .link-holder {
@@ -34,20 +35,17 @@
       display: inline-block;
       float: right;
     }
-
-    .comment-text-area {
-      .comment-text {
-        display:inline-block;
-        font-size: 0.5em;
-        width: 90%;
-      }
-    }
-
   }
 }
+
+.comment-text {
+  font-size: 0.75em;
+}
 .user-name-time.blue-grey-text {
-  padding-top: 30px;
-  padding-left: 10px;
+
+  padding-top: 15px;
+  padding: 0 10px;
+  
 }
 
 .pagination {
