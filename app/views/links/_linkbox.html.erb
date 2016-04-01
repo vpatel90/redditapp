@@ -1,0 +1,33 @@
+<a class="url" href="<%= link.url %>">
+<div class="link-holder card-panel hoverable collection" >
+
+  <div calss="row">
+    <span class="badge center-align teal lighten-3">
+      <%= link.total_votes %>
+    </span>
+    <%= link.title %>
+  </div>
+  <a href="/users/<%= link.user_id %>">
+    <small class="user-name-time blue-grey-text text-lighten-2">
+        <%= link.user_name %> | <%= link.time %>
+    </small>
+  </a>
+
+  <a href="/votes/<%= link.id %>value=-1">
+    <small class="right on-link red-text text-lighten-2">
+      <i class="material-icons downvote">thumb_down</i>
+    </small>
+  </a>
+  <a href="/votes/<%= link.id %>value=1">
+    <small class="right on-link green-text text-lighten-2">
+      <i class="material-icons upvote">thumb_up</i>
+    </small>
+  </a>
+
+  <a href="/links/<%= link.id %>">
+    <small class="comments right on-link blue-grey-text text-lighten-2">
+      Comments
+    </small>
+  </a>
+</div>
+</a>

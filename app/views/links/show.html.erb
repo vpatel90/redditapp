@@ -1,2 +1,6 @@
-<h1>Links#show</h1>
-<p>Find me in app/views/links/show.html.erb</p>
+
+<div class="show-page container">
+
+<%= render partial: 'linkbox',
+    locals: { link: @link }%>
+</div>

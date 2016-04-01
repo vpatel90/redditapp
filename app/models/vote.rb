@@ -6,4 +6,5 @@ class Vote < ActiveRecord::Base
     scope: :link_id,
     message: "cannot vote for the same item more than once"
   }
+
 end

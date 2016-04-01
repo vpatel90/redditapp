@@ -164,7 +164,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari
+  kaminari (~> 0.16.1)
   materialize-sass
   pry-rails
   rails (= 4.2.6)
