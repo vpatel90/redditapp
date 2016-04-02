@@ -8,7 +8,7 @@ class Link < ActiveRecord::Base
   validates :url, presence: true
 
   def total_votes
-    votes.where('value > 0').count - votes.where('value < 0').count
+    self.pos_votes - self.neg_votes
   end
 
   def user_name

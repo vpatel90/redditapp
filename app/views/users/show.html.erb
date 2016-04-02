@@ -9,7 +9,7 @@
 
 <% if params[:request] == 'links' %>
   <% @user.links.each do |link| %>
-    <%= render partial: 'linkbox',
+    <%= render partial: 'links/linkbox',
           locals: { link: link } %>
   <% end %>
 <% end %>
@@ -17,12 +17,12 @@
 <% if params[:request] == 'comments' %>
 
   <% @user.comments.each do |comment| %>
-    <%= render partial: 'linkbox',
+    <%= render partial: 'links/linkbox',
         locals: { link: comment.link } %>
-        
+
 
     <div class="comment-container show-page user-comment-title">
-    <%= render partial: 'commentbox',
+    <%= render partial: 'links/commentbox',
           locals: { comment: comment } %>
     </div>
   <% end %>

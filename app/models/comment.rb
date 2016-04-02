@@ -14,6 +14,6 @@ class Comment < ActiveRecord::Base
   end
 
   def total_votes
-    votes.where('value > 0').count - votes.where('value < 0').count
+    self.pos_votes - self.neg_votes
   end
 end
