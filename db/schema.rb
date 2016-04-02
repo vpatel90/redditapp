@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402185611) do
+ActiveRecord::Schema.define(version: 20160402202125) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "link_id"
     t.text     "body"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "pos_votes",  default: 0
-    t.integer  "neg_votes",  default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "total_votes", default: 0
+    t.integer  "neg_votes",   default: 0
+    t.integer  "pos_votes",   default: 0
+    t.integer  "net_votes",   default: 0
   end
 
   create_table "links", force: :cascade do |t|
@@ -29,9 +31,11 @@ ActiveRecord::Schema.define(version: 20160402185611) do
     t.integer  "user_id",                     null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "comment_counter"
-    t.integer  "pos_votes",       default: 0
+    t.integer  "comment_counter", default: 0
+    t.integer  "total_votes",     default: 0
     t.integer  "neg_votes",       default: 0
+    t.integer  "pos_votes",       default: 0
+    t.integer  "net_votes",       default: 0
   end
 
   create_table "users", force: :cascade do |t|

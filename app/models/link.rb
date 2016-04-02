@@ -7,7 +7,7 @@ class Link < ActiveRecord::Base
   validates :title, presence: true
   validates :url, presence: true
 
-  def total_votes
+  def net_votes
     self.pos_votes - self.neg_votes
   end
 

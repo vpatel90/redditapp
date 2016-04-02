@@ -13,9 +13,12 @@ class Vote < ActiveRecord::Base
     row = Object.const_get(self.votable_type).find(self.votable_id)
     if self.value > 0
       row.pos_votes += 1
+      row.net_votes += 1
     else
       row.neg_votes += 1
+      row.net_votes -= 1
     end
+    row.total_votes += 1
     row.save!
   end
 end

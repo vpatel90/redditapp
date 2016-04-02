@@ -6,7 +6,9 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
-    @comments = @link.comments.order(updated_at: :desc).page params[:page]
+
+    @comments = @link.comments.order(net_votes: :desc).page params[:page]
+    #binding.pry
   end
 
   def new

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sessions' => 'sessions#new'
+  post 'sessions' => 'sessions#create'
+  delete 'sessions' => 'sessions#destroy'
+
   post 'comments' => 'comments#create'
   post 'comments/:id/vote' => 'comments#create_vote'
   post 'links/:id/vote' => 'links#create_vote'
