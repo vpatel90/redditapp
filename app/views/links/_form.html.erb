@@ -4,6 +4,6 @@
   <%= f.label :url %>
   <%= f.text_field :url, placeholder: "https://yourlink.com" %>
   <%= f.label :user_id %>
-  <%= f.number_field :user_id, min: 1, max: User.count %>
+  <%= f.number_field :user_id, min: 1, max: User.count, placeholder: "1" %>
   <%= f.submit value: "Submit Link" %>
 <% end %>

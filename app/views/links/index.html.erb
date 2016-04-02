@@ -1,11 +1,11 @@
 <h1>Links#index</h1>
 
 
-<div class="container">
+
 
   <% @links.each do |link| %>
     <%= render partial: 'linkbox',
         locals: { link: link }%>
   <% end %>
-</div>
+
 <%= paginate @links %>

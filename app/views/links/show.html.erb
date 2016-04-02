@@ -1,5 +1,5 @@
 
-<div class="show-page container">
+<div class="show-page">
 
   <%= render partial: 'linkbox',
     locals: { link: @link }%>
@@ -8,6 +8,14 @@
   <div class="comment-container">
     <br>
     <h5> Comments (<%= @link.total_comments %>)</h5>
+    <%= form_for(Comment.new) do |f| %>
+      <%= f.label :body %>
+      <%= f.text_field :body, placeholder: "Enter Comment here" %>
+      <%= f.label :user_id %>
+      <%= f.number_field :user_id, min: 1, max: User.count, placeholder: "1" %>
+      <%= f.hidden_field :link_id, value: @link.id %>
+      <%= f.submit value: "Submit Comment" %>
+    <% end %>
     <% @comments.each do |comment| %>
       <%= render partial: 'commentbox',
         locals: { comment: comment }%>

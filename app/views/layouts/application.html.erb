@@ -9,16 +9,17 @@
 </head>
 <body>
 <nav>
-  <ul>
+  <ul class="container">
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "Users", users_path %></li>
     <li><%= link_to "New Link", new_link_path %></li>
   </ul>
 </nav>
-<%= flash[:alert] %>
-<%= flash[:notice] %>
+<div class="container">
+  <%= flash[:alert] %>
+  <%= flash[:notice] %>
 
-<%= yield %>
-
+  <%= yield %>
+</div>
 </body>
 </html>
