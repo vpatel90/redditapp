@@ -8,19 +8,18 @@
   <div class="comment-container">
     <br>
     <h5> Comments (<%= @link.total_comments %>)</h5>
-    <%= form_for(Comment.new) do |f| %>
-      <%= f.label :body %>
-      <%= f.text_field :body, placeholder: "Enter Comment here" %>
-      <%= f.label :user_id %>
-      <%= f.number_field :user_id, min: 1, max: User.count, placeholder: "1" %>
-      <%= f.hidden_field :link_id, value: @link.id %>
-      <%= f.submit value: "Submit Comment" %>
+    <% if logged_in? %>
+      <%= form_for(Comment.new) do |f| %>
+        <%= f.label :body %>
+        <%= f.text_field :body, placeholder: "Enter Comment here" %>
+
+        <%= f.submit value: "Submit Comment", class: "waves-effect waves-light btn" %>
+      <% end %>
     <% end %>
     <% @comments.each do |comment| %>
       <%= render partial: 'commentbox',
         locals: { comment: comment }%>
       <% end %>
     <%= paginate @comments %>
-
   </div>
 </div>

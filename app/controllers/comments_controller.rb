@@ -9,13 +9,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new
     @comment.body = params[:comment][:body]
-    @comment.user_id = params[:comment][:user_id]
+    @comment.user_id = current_user.id
     @comment.link_id = params[:comment][:link_id]
 
     if @comment.save
       redirect_to link_path(params[:comment][:link_id])
     else
-      flash[:alert] = "error"
+      flash[:alert] = @comment.errors.full_messages[0]
       redirect_to(:back)
     end
   end

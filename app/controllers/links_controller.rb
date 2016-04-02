@@ -19,13 +19,13 @@ class LinksController < ApplicationController
     @link = Link.new
     @link.title = params[:link][:title]
     @link.url = params[:link][:url]
-    @link.user_id = params[:link][:user_id]
+    @link.user_id = current_user.id
 
     if @link.save
       redirect_to link_path(@link.id)
     else
-      flash[:alert] = "error"
-      render :new
+      flash[:alert] = @link.errors.full_messages[0]
+      redirect_to '/links/new'
     end
   end
 

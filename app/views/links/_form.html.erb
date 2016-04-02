@@ -3,7 +3,5 @@
   <%= f.text_field :title, placeholder: "Robots who live your life!" %>
   <%= f.label :url %>
   <%= f.url_field :url, placeholder: "https://yourlink.com" %>
-  <%= f.label :user_id %>
-  <%= f.number_field :user_id, min: 1, max: User.count, placeholder: "1" %>
   <%= f.submit value: "Submit Link", class: "waves-effect waves-light btn" %>
 <% end %>
