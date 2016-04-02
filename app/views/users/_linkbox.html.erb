@@ -1,0 +1,45 @@
+
+<div class="link-holder card-panel hoverable collection" >
+
+  <div class="">
+    <span class="vote-count badge center-align teal lighten-3">
+      <%= link.total_votes %>
+    </span>
+
+    <div class="link-title flow-text">
+      <a class="url" href="<%= link.url %>">
+        <%= link.title %>
+      </a>
+    </div>
+
+
+  </div>
+  <a href="/users/<%= link.user_id %>">
+    <small class="user-name-time blue-grey-text text-lighten-2">
+        <%= link.user_name %> | <%= link.time %>
+    </small>
+  </a>
+
+
+  <%= link_to "/links/#{link.id}/vote?value=-1", method: :post do %>
+    <small class="right on-link red-text text-lighten-2">
+      <i class="material-icons downvote">thumb_down</i>
+    </small>
+  <% end %>
+
+
+  <%= link_to "/links/#{link.id}/vote?value=1", method: :post do %>
+    <small class="right on-link green-text text-lighten-2">
+      <i class="material-icons upvote">thumb_up</i>
+    </small>
+  <% end %>
+
+
+  <% unless params[:id] %>
+    <a href="/links/<%= link.id %>">
+      <small class="comments right on-link blue-grey-text text-lighten-2">
+        (<%= link.total_comments %>) Comments
+      </small>
+    </a>
+  <% end %>
+</div>

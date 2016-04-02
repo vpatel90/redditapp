@@ -5,3 +5,17 @@
   <%= render partial: 'userbox',
       locals: { user: @user }%>
 </div>
+
+<% if params[:request] == 'links' %>
+  <% @user.links.each do |link| %>
+    <%= render partial: 'linkbox',
+          locals: { link: link } %>
+  <% end %>
+<% end %>
+
+<% if params[:request] == 'comments' %>
+  <% @user.comments.each do |comment| %>
+    <%= render partial: 'commentbox',
+          locals: { comment: comment } %>
+  <% end %>
+<% end %>
