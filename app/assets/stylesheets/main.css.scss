@@ -11,6 +11,22 @@
   margin: 0px 1px;
 }
 
+.on-link.red-text {
+  .material-icons {
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.on-link.green-text {
+  .material-icons {
+    &:hover {
+      color: green;
+    }
+  }
+}
+
 .vote-count {
   margin-right: 10px;
 }
@@ -42,10 +58,14 @@
   font-size: 0.75em;
 }
 .user-name-time.blue-grey-text {
-
   padding-top: 15px;
   padding: 0 10px;
-  
+}
+
+.show-page.user-comment-title {
+  padding-top: 0px;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 .pagination {

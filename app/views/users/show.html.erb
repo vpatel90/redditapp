@@ -6,6 +6,7 @@
       locals: { user: @user }%>
 </div>
 
+
 <% if params[:request] == 'links' %>
   <% @user.links.each do |link| %>
     <%= render partial: 'linkbox',
@@ -14,8 +15,15 @@
 <% end %>
 
 <% if params[:request] == 'comments' %>
+
   <% @user.comments.each do |comment| %>
+    <%= render partial: 'linkbox',
+        locals: { link: comment.link } %>
+        
+
+    <div class="comment-container show-page user-comment-title">
     <%= render partial: 'commentbox',
           locals: { comment: comment } %>
+    </div>
   <% end %>
 <% end %>
