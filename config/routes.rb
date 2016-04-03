@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'b' => 'boards#index'
+  get 'b/new' => 'boards#new'
+
+  get 'b/:id'  => 'boards#show'
+
   get 'sessions' => 'sessions#new'
   post 'sessions' => 'sessions#create'
   delete 'sessions' => 'sessions#destroy'

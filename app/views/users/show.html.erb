@@ -8,22 +8,23 @@
 
 
 <% if params[:request] == 'links' %>
-  <% @user.links.each do |link| %>
+  <% @user.paginate_links(params[:page]).each do |link| %>
+
     <%= render partial: 'links/linkbox',
           locals: { link: link } %>
   <% end %>
 <% end %>
+<%= paginate @user.paginate_links(params[:page]) %>
 
 <% if params[:request] == 'comments' %>
 
-  <% @user.comments.each do |comment| %>
+  <% @user.paginate_comments(params[:page]).each do |comment| %>
     <%= render partial: 'links/linkbox',
         locals: { link: comment.link } %>
-
-
     <div class="comment-container show-page user-comment-title">
     <%= render partial: 'links/commentbox',
           locals: { comment: comment } %>
     </div>
   <% end %>
+  <%= paginate @user.paginate_comments(params[:page]) %>
 <% end %>

@@ -21,6 +21,7 @@
   </a>
 
 
+
   <%= link_to "/links/#{link.id}/vote?value=-1", method: :post do %>
     <small class="right on-link red-text text-lighten-2">
       <i class="material-icons downvote">thumb_down</i>
@@ -35,7 +36,7 @@
   <% end %>
 
 
-  <% unless params[:id] && params[:request].nil? %>
+  <% unless params[:id].to_i > 0 && params[:request].nil? %>
     <a href="/links/<%= link.id %>">
       <small class="comments right on-link blue-grey-text text-lighten-2">
         (<%= link.total_comments %>) Comments

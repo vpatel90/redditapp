@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:sessions][:email])
-    if user
+    if @user
       log_in @user
       redirect_to '/'
     else

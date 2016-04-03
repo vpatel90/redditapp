@@ -1,0 +1,8 @@
+<h1>Boards#show</h1>
+
+<% @links.each do |link| %>
+  <%= render partial: 'links/linkbox',
+      locals: { link: link }%>
+<% end %>
+
+<%= paginate @links %>

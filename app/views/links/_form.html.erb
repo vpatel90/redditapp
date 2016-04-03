@@ -3,5 +3,7 @@
   <%= f.text_field :title, placeholder: "Robots who live your life!" %>
   <%= f.label :url %>
   <%= f.url_field :url, placeholder: "https://yourlink.com" %>
+  <%= f.label :board_id %>
+  <%= f.select :board_id, options_for_select(@options), class: "form-drop-down input-field col s12" %>
   <%= f.submit value: "Submit Link", class: "waves-effect waves-light btn" %>
 <% end %>

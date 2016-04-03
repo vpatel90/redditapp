@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
 
   validates :body, presence: true
 
-  after_save :add_to_counter_cache
+
 
   def user_name
     user.user_name
@@ -20,8 +20,9 @@ class Comment < ActiveRecord::Base
     self.pos_votes - self.neg_votes
   end
 
+  ##Does not work
   def add_to_counter_cache
-    link = Link.find(self.link_id)
+    link = Link.find_by(id: self.link_id)
     link.comment_counter += 1
     link.save!
   end

@@ -1,6 +1,7 @@
 class Link < ActiveRecord::Base
 
   belongs_to :user
+  belongs_to :board
   has_many :votes, :as => :votable
   has_many :comments
 
@@ -21,5 +22,9 @@ class Link < ActiveRecord::Base
 
   def time
     "#{updated_at.strftime('%x')} on #{updated_at.strftime('%r')}"
+  end
+
+  def has_current_user_vote?(id)
+    votes.find_by(user_id: id)
   end
 end

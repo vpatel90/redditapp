@@ -13,6 +13,10 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    @options = []
+    Board.all.each do |board|
+      @options << [board.name, board.id]
+    end
   end
 
   def create
@@ -20,19 +24,24 @@ class LinksController < ApplicationController
     @link.title = params[:link][:title]
     @link.url = params[:link][:url]
     @link.user_id = current_user.id
+    @link.board_id = params[:link][:board_id]
 
     if @link.save
       redirect_to link_path(@link.id)
     else
       flash[:alert] = @link.errors.full_messages[0]
-      redirect_to '/links/new'
+      redirect_to new_link_path
     end
   end
 
   def create_vote
-    link = Link.find(params[:id])
-    link.votes.build(value:params[:value], user_id:1)
-    link.save
-    redirect_to(:back)
+    if logged_in?
+      link = Link.find(params[:id])
+      link.votes.build(value:params[:value], user_id:current_user.id)
+      link.save
+    else
+    end
+    flash[:alert] = "You must log in to do that"
+    redirect_to sessions_path
   end
 end

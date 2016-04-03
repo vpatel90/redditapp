@@ -1,9 +1,14 @@
 class CommentsController < ApplicationController
   def create_vote
-    comment = Comment.find(params[:id])
-    comment.votes.build(value:params[:value], user_id:1)
-    comment.save
-    redirect_to(:back)
+    if logged_in?
+      comment = Comment.find(params[:id])
+      comment.votes.build(value:params[:value], user_id: current_user.id)
+      comment.save
+      redirect_to(:back)
+    else
+      flash[:alert] = "You must log in to do that"
+      redirect_to sessions_path
+    end
   end
 
   def create
@@ -11,7 +16,6 @@ class CommentsController < ApplicationController
     @comment.body = params[:comment][:body]
     @comment.user_id = current_user.id
     @comment.link_id = params[:comment][:link_id]
-
     if @comment.save
       redirect_to link_path(params[:comment][:link_id])
     else

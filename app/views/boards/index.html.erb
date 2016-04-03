@@ -1,0 +1,16 @@
+
+  <% @boards.each do |board| %>
+    <div class="row">
+      <div class="col s12 m8 l6">
+        <div class="card teal">
+          <div class="card-content white-text">
+            <span class="card-title card-action">
+              <a href="/b/<%= board.name %>"><%= board.name %></a>
+            </span>
+            <p><%= board.desc %></p>
+            <p>Total Links: <%= board.links.count %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

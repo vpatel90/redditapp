@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402202125) do
+ActiveRecord::Schema.define(version: 20160403033118) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.string   "desc",       default: "This Board has no Description"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160402202125) do
     t.integer  "neg_votes",       default: 0
     t.integer  "pos_votes",       default: 0
     t.integer  "net_votes",       default: 0
+    t.integer  "board_id"
   end
 
   create_table "users", force: :cascade do |t|
