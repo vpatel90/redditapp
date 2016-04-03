@@ -18,30 +18,31 @@
         <%= link.user_name %> | <%= link.time %>
     </small>
   </a>
+  <div class="right">
+    <%= link_to "/links/#{link.id}/vote?value=-1", method: :post do %>
+      <small class="right on-link red-text text-lighten-2">
+        <i class="material-icons downvote">thumb_down</i>
+      </small>
+    <% end %>
 
-  <%= link_to "/links/#{link.id}/vote?value=-1", method: :post do %>
-    <small class="right on-link red-text text-lighten-2">
-      <i class="material-icons downvote">thumb_down</i>
-    </small>
-  <% end %>
+    <%= link_to "/links/#{link.id}/vote?value=1", method: :post do %>
+      <small class="right on-link green-text text-lighten-2">
+        <i class="material-icons upvote">thumb_up</i>
+      </small>
+    <% end %>
 
-  <%= link_to "/links/#{link.id}/vote?value=1", method: :post do %>
-    <small class="right on-link green-text text-lighten-2">
-      <i class="material-icons upvote">thumb_up</i>
-    </small>
-  <% end %>
+    <% unless params[:id].to_i > 0 && params[:request].nil? %>
+      <a href="/links/<%= link.id %>">
+        <small class="comments right on-link blue-grey-text text-lighten-2">
+          (<%= link.total_comments %>) Comments
+        </small>
+      </a>
+    <% end %>
 
-  <% unless params[:id].to_i > 0 && params[:request].nil? %>
-    <a href="/links/<%= link.id %>">
+    <a href="/b/<%= link.board.name %>">
       <small class="comments right on-link blue-grey-text text-lighten-2">
-        (<%= link.total_comments %>) Comments
+        /b/<%= link.board.name %>
       </small>
     </a>
-  <% end %>
-  
-  <a href="/b/<%= link.board.name %>">
-    <small class="comments right on-link blue-grey-text text-lighten-2">
-      /b/<%= link.board.name %>
-    </small>
-  </a>
+  </div>
 </div>
