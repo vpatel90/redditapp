@@ -20,6 +20,7 @@
         <% if logged_in? %>
         <li><%= link_to "New Link", new_link_path %></li>
         <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+
         <% else %>
         <li><%= link_to "Login", sessions_path %></li>
         <li><%= link_to "Sign Up", new_user_path %></li>
@@ -39,8 +40,12 @@
       </ul>
     </div>
   </nav>
+
 </div>
 <div class="container">
+  <a href="/users/<%=current_user.id%>" class="right waves-effect waves-light btn">
+    <i class="material-icons left">perm_identity</i>
+     Welcome, <%= current_user.user_name %></a>
   <% if flash[:alert] %>
   <div class="alert row red-text">
     <%= flash[:alert] %>
