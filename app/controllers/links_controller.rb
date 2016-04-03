@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def index
-    @links = Link.order(updated_at: :desc).page params[:page]
+    @links = Link.order(total_votes: :desc).order(pos_votes: :desc).page params[:page]
   end
 
 

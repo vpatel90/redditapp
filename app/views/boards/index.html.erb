@@ -1,16 +1,20 @@
-
-  <% @boards.each do |board| %>
-    <div class="row">
-      <div class="col s12 m8 l6">
-        <div class="card teal">
-          <div class="card-content white-text">
-            <span class="card-title card-action">
-              <a href="/b/<%= board.name %>"><%= board.name %></a>
-            </span>
-            <p><%= board.desc %></p>
-            <p>Total Links: <%= board.links.count %> </p>
-          </div>
+<h1 class="page-header teal-text text-lighten-2">
+   Boards Page</h1>
+<% if logged_in? %>
+<a href="/b/new" class="right waves-effect waves-light btn">New Board</a>
+<% end %>
+<% @boards.each do |board| %>
+  <div class="row">
+    <div class="col s12 m8 l6">
+      <div class="card teal">
+        <div class="card-content white-text">
+          <span class="card-title card-action">
+            <a href="/b/<%= board.name %>"><%= board.name %></a>
+          </span>
+          <p><%= board.desc %></p>
+          <p>Total Links: <%= board.links.count %> </p>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>

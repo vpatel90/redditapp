@@ -1,2 +1,15 @@
-<h1>Boards#new</h1>
-<p>Find me in app/views/boards/new.html.erb</p>
+<h1 class="page-header teal-text text-lighten-2">
+   New Board</h1>
+<% if logged_in? %>
+  <%= form_for(@board) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "catpics" %>
+    <%= f.label :desc, value: "Description" %>
+    <%= f.text_field :desc, value:"", placeholder: "This board contains pics of cats!" %>
+    <%= f.submit value: "Create Board", class: "waves-effect waves-light btn" %>
+  <% end %>
+<% else %>
+<p> Please <%= link_to "Login", sessions_path, class: "waves-effect waves-light btn" %>
+    to access this functionality.
+ </p>
+<% end %>

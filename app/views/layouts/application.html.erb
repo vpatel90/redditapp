@@ -8,25 +8,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-  <ul class="container">
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Boards", b_path %></li>
-    <li><%= link_to "Users", users_path %></li>
-    <% if logged_in? %>
-    <li><%= link_to "New Link", new_link_path %></li>
-    <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
-    <% else %>
-    <li><%= link_to "Login", sessions_path %></li>
-    <li><%= link_to "Sign Up", new_user_path %></li>
-    <% end %>
-
-  </ul>
-</nav>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo">Blue Hair</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Boards", b_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <% if logged_in? %>
+        <li><%= link_to "New Link", new_link_path %></li>
+        <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Login", sessions_path %></li>
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Boards", b_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <% if logged_in? %>
+        <li><%= link_to "New Link", new_link_path %></li>
+        <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Login", sessions_path %></li>
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
 <div class="container">
   <%= flash[:alert] %>
   <%= flash[:notice] %>
-
   <%= yield %>
 </div>
 </body>

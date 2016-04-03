@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   validates :user_name, presence: true
+  validates :email, presence: true
 
   validates :user_name, uniqueness: {
     scope: :user_name,

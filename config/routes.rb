@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  post 'boards' => 'boards#create'
   get 'b' => 'boards#index'
   get 'b/new' => 'boards#new'
 

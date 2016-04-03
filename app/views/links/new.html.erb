@@ -1,4 +1,13 @@
+<h1 class="page-header teal-text text-lighten-2">
+   New Link</h1>
 <div class="container" >
   <h1>New Link</h1>
-  <%= render partial: 'form'%>
+  <% if logged_in? %>
+    <%= render partial: 'form'%>
+
+  <% else %>
+  <p> Please <%= link_to "Login", sessions_path, class: "waves-effect waves-light btn" %>
+      to access this functionality.
+   </p>
+  <% end %>
 </div>

@@ -3,4 +3,9 @@ class Board < ActiveRecord::Base
 
   validates :name, presence: true
   paginates_per 30
+
+  validates :name, uniqueness: {
+    scope: :name,
+    message: "Taken"
+  }
 end
