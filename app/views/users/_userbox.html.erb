@@ -5,7 +5,10 @@
         <span class="card-title"><%= user.user_name %></span>
         <p>Join Date: <%= user.created_at.strftime('%x') %><br>
             Total Submissions: <%= user.links.count %> <br>
-            Total Votes Given: <%= user.votes.count %></p>
+            Total Comments: <%= user.comments.count %> <br>
+            Net Link Votes: <%= user.link_vote_count %><br>
+            Net Comment Votes: <%= user.comment_vote_count %></p>
+
       </div>
       <div class="card-action">
         <a href="/users/<%= user.id %>?request=links">User Links</a>

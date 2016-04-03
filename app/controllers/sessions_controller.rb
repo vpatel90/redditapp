@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in @user
       redirect_to '/'
     else
-      flash[:alert] = @user.errors.full_messages[0]
+      flash[:alert] = "Invalid Entry"
       redirect_to '/sessions'
     end
   end

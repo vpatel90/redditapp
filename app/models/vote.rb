@@ -19,6 +19,6 @@ class Vote < ActiveRecord::Base
       row.net_votes -= 1
     end
     row.total_votes += 1
-    row.save!
+    row.save
   end
 end

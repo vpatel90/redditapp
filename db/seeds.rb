@@ -10,7 +10,7 @@
 
 
 
-25.times do
+50.times do
   User.create(user_name:Faker::Internet.user_name, email:Faker::Internet.email)
 end
 value = [1,1,1,-1]
