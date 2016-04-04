@@ -3,12 +3,9 @@ class LinksController < ApplicationController
     @links = Link.order(total_votes: :desc).order(pos_votes: :desc).page params[:page]
   end
 
-
   def show
     @link = Link.find(params[:id])
-
     @comments = @link.comments.order(net_votes: :desc).page params[:page]
-
   end
 
   def new

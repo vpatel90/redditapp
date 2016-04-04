@@ -7,12 +7,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   validates :user_name, uniqueness: {
-    scope: :user_name,
     message: "Taken"
   }
 
   validates :email, uniqueness: {
-    scope: :email,
     message: "Taken"
   }
 

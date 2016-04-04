@@ -10,7 +10,7 @@ class Vote < ActiveRecord::Base
   }
 
   def add_to_counter_cache
-    row = Object.const_get(self.votable_type).find(self.votable_id)
+    row = votable
     if self.value > 0
       row.pos_votes += 1
       row.net_votes += 1

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete 'comments/:id' => 'comments#destroy'
   post 'comments' => 'comments#create'
   post 'comments/:id/vote' => 'comments#create_vote'
-  post 'links/:id/vote' => 'links#create_vote'
+  post 'links/:id/vote' => 'links#create_vote', as: "vote_link"
 
   resources :links
 

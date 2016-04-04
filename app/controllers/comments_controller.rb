@@ -25,9 +25,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
     @comment = Comment.find(params[:id])
-    link_id = @comment.link_id
+    #link_id = @comment.link_id
     if @comment.destroy
       redirect_to(:back)
     else
@@ -35,5 +34,4 @@ class CommentsController < ApplicationController
       redirect_to(:back)
     end
   end
-
 end
