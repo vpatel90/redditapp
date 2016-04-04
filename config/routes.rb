@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'sessions' => 'sessions#create'
   delete 'sessions' => 'sessions#destroy'
 
+  delete 'comments/:id' => 'comments#destroy'
   post 'comments' => 'comments#create'
   post 'comments/:id/vote' => 'comments#create_vote'
   post 'links/:id/vote' => 'links#create_vote'

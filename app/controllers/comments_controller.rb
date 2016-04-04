@@ -24,4 +24,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+
+    @comment = Comment.find(params[:id])
+    link_id = @comment.link_id
+    if @comment.destroy
+      redirect_to(:back)
+    else
+      flash[:alert] = "Unable to Delete"
+      redirect_to(:back)
+    end
+  end
+
 end
