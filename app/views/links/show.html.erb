@@ -1,4 +1,4 @@
-
+<h1></h1>
 <div class="show-page">
 
   <%= render partial: 'linkbox',
@@ -12,7 +12,7 @@
       <%= form_for(Comment.new) do |f| %>
         <%= f.label :body %>
         <%= f.text_field :body, placeholder: "Enter Comment here" %>
-        <%= f.hidden_field :link_id, value: @link.id %> 
+        <%= f.hidden_field :link_id, value: @link.id %>
         <%= f.submit value: "Submit Comment", class: "waves-effect waves-light btn" %>
       <% end %>
     <% end %>
