@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
 
     @comments = @link.comments.order(net_votes: :desc).page params[:page]
-    #binding.pry
+
   end
 
   def new

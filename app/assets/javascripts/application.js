@@ -20,9 +20,7 @@
 
 var ready;
 ready = function() {
-
   $(".button-collapse").sideNav();
-
 };
 
 $(document).ready(ready);
