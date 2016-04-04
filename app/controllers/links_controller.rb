@@ -39,10 +39,10 @@ class LinksController < ApplicationController
       link = Link.find(params[:id])
       link.votes.build(value:params[:value], user_id:current_user.id)
       link.save
+      redirect_to(:back)
     else
       flash[:alert] = "You must log in to do that"
       redirect_to sessions_path
     end
-    redirect_to(:back)
   end
 end
