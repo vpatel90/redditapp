@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160403033118) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                                           null: false
@@ -26,9 +29,9 @@ ActiveRecord::Schema.define(version: 20160403033118) do
     t.text     "body"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.integer  "total_votes", default: 0
-    t.integer  "neg_votes",   default: 0
     t.integer  "pos_votes",   default: 0
+    t.integer  "neg_votes",   default: 0
+    t.integer  "total_votes", default: 0
     t.integer  "net_votes",   default: 0
   end
 
@@ -39,9 +42,9 @@ ActiveRecord::Schema.define(version: 20160403033118) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "comment_counter", default: 0
-    t.integer  "total_votes",     default: 0
-    t.integer  "neg_votes",       default: 0
     t.integer  "pos_votes",       default: 0
+    t.integer  "neg_votes",       default: 0
+    t.integer  "total_votes",     default: 0
     t.integer  "net_votes",       default: 0
     t.integer  "board_id"
   end
