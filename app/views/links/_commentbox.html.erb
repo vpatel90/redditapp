@@ -5,7 +5,7 @@
           <%= comment.user_name %> | <%= comment.time %>
       </small>
     </a>
-    <% if current_user.id == comment.user_id %>
+    <% if logged_in? && current_user.id == comment.user_id %>
       <%= link_to "/comments/#{comment.id}", method: :delete do %>
       <small class="user-name-time blue-grey-text text-lighten-2">
         Delete
