@@ -12,7 +12,8 @@
   <nav>
     <div class="nav-wrapper container">
       <a href="/" class="brand-logo">Blue Hair</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href=""data-activates="mobile-demo-menu" class="button-collapse">
+        <i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Boards", b_path %></li>
@@ -25,7 +26,7 @@
         <li><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
       </ul>
-      <ul class="side-nav" id="mobile-demo">
+      <ul class="side-nav" id="mobile-demo-menu">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Boards", b_path %></li>
         <li><%= link_to "Users", users_path %></li>

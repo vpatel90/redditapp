@@ -15,9 +15,17 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+
+
+
+var ready;
+ready = function() {
+
+  $(".button-collapse").sideNav();
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
 //= require_tree .
-
-
-$( document ).ready(function() {
-    $(".button-collapse").sideNav();
-});
