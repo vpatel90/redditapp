@@ -17,7 +17,7 @@ value = [1,1,1,-1]
 
 2.times do
   name = Faker::Hipster.word
-  name = name.downcase.gsub!(/\W+/,"")
+  name = name.downcase.gsub(/\W+/,"")
   board = Board.create(name:name)
   16.times do
     link = Link.create(title:Faker::Hipster.sentence(4,false,7), url:'#',
