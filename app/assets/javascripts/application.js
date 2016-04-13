@@ -35,7 +35,7 @@ ready = function() {
 
       return '<div class="link-holder card-panel hoverable collection" >' +
           '<span class="vote-count badge center-align teal lighten-3">' +
-            link.net_votes +
+            link.net_votes   +
           '</span>' +
           '<div class="link-title flow-text">' +
             '<a class="url" href="' + link.url + '">' +
@@ -58,14 +58,11 @@ ready = function() {
               '<i class="material-icons upvote">thumb_up</i>' +
             '</small>' +
           '</a>' +
-
           '<a href="/links/' + link.id + '">' +
             '<small class="comments right on-link blue-grey-text text-lighten-2">' +
               '(' + link.total_comments + ') Comments' +
             '</small>' +
           '</a>' +
-
-
           '<a href="/b/' + link.board_name + '">' +
             '<small class="comments right on-link blue-grey-text text-lighten-2">' +
               '/b/' + link.board_name +
@@ -74,16 +71,17 @@ ready = function() {
         '</div>' +
       '</div>'
 
-
     });
 
-    $("#links-body").on("click", ".vote-icon", function() {
+    // $("#links-body").on("click", ".vote-icon", function() {
+    $("#links-body").on("ajax:success", "a[data-remote]", function (e, data, status, xhr){
         var url = document.URL;
-        $("#links-body").html("");
+
         console.log("hi1")
         $.getJSON(url, function(response){
             console.log("hi2");
             console.log(response);
+            $("#links-body").html("");
             response.forEach(function(link) {
                 $("#links-body").append(getHTML(link));
             });
