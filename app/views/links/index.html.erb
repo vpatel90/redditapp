@@ -1,9 +1,9 @@
 <h1 id="page-header" class="page-header teal-text text-lighten-2">
    Front Page</h1>
-
+<div id="links-body">
   <% @links.each do |link| %>
     <%= render partial: 'linkbox',
         locals: { link: link }%>
   <% end %>
-
+</div>
 <%= paginate @links %>

@@ -17,6 +17,10 @@ class Link < ActiveRecord::Base
     user.user_name
   end
 
+  def board_name
+    board.name
+  end
+
   def total_comments
     comments.count
   end

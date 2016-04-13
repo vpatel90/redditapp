@@ -4,10 +4,10 @@ class Vote < ActiveRecord::Base
 
   after_save :add_to_counter_cache
 
-  validates :user_id, uniqueness: {
-    scope: :votable,
-    message: "cannot vote for the same item more than once"
-  }
+  # validates :user_id, uniqueness: {
+  #   scope: :votable,
+  #   message: "cannot vote for the same item more than once"
+  # }
 
   def add_to_counter_cache
     row = votable

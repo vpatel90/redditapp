@@ -1,6 +1,14 @@
 class LinksController < ApplicationController
   def index
     @links = Link.order(total_votes: :desc).order(pos_votes: :desc).page params[:page]
+    respond_to do |format|
+      format.html do
+        @links
+      end
+      format.json do
+        render json: @links.to_json(methods: [:user_name, :board_name, :time, :total_comments])
+      end
+    end
   end
 
   def show
