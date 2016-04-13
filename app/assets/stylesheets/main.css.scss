@@ -3,7 +3,10 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-
+.add-border {
+  transition: backgound-color .5s ease;
+  background-color: lighten(#26A69A, 45%);
+}
 .container {
   flex: 1 0 auto;
 }
@@ -117,4 +120,8 @@ body {
 
 .profile {
   margin:0 auto;
+}
+
+.top-link {
+  margin-top: 15px;
 }

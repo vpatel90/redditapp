@@ -20,7 +20,10 @@
 
 var ready;
 ready = function() {
-  $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav();
+    $("#top-link").on("click", function() {
+      $("#links-body > .link-holder:first-child").toggleClass("add-border");
+    });
 };
 
 $(document).ready(ready);
