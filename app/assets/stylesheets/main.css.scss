@@ -3,10 +3,21 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+
+.page-header {
+  margin-top: 40px;
+  font-weight: lighter;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  cursor: default;
+}
+
 .add-border {
   transition: backgound-color .5s ease;
   background-color: lighten(#26A69A, 45%);
 }
+
 .container {
   flex: 1 0 auto;
 }
@@ -60,10 +71,7 @@ body {
   width: 90%;
 }
 
-.page-header {
-  margin-top: 40px;
-  font-weight: lighter;
-}
+
 .logo-image{
   width: 50px;
 }

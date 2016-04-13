@@ -22,7 +22,13 @@ var ready;
 ready = function() {
     $(".button-collapse").sideNav();
     $("#top-link").on("click", function() {
-      $("#links-body > .link-holder:first-child").toggleClass("add-border");
+        $("#links-body > .link-holder:first-child").toggleClass("add-border");
+    });
+
+    var clickCounter = 0;
+    $("#page-header").on("click", function() {
+        clickCounter ++ ;
+        console.log("Clicked header " + clickCounter + " times");
     });
 };
 
