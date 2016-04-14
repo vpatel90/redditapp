@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def index
-    @links = Link.order(total_votes: :desc).order(pos_votes: :desc).page params[:page]
+    @links = Link.order(net_votes: :desc).page params[:page]
     respond_to do |format|
       format.html do
         @links

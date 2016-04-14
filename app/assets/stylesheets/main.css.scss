@@ -13,10 +13,19 @@ body {
   cursor: default;
 }
 
-.add-border {
-  transition: backgound-color .5s ease;
-  background-color: lighten(#26A69A, 45%);
+
+#links-body > .link-holder:first-child {
+ transition: 1s ease;
+ top: 0;
 }
+
+.add-border {
+  background-color: lighten(#26A69A, 45%);
+  overflow:hidden;
+  top: 100%;
+}
+
+
 
 .container {
   flex: 1 0 auto;

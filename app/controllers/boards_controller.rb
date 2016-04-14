@@ -1,15 +1,24 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.all
+
   end
 
   def show
     @board = Board.find_by(name: params[:id].downcase)
     if @board
-      @links = @board.links.order(total_votes: :desc).order(pos_votes: :desc).page params[:page]
+      @links = @board.links.order(net_votes: :desc).page params[:page]
     else
       flash[:alert] = "Could Not find this Board"
       redirect_to '/'
+    end
+    respond_to do |format|
+      format.html do
+        @links
+      end
+      format.json do
+        render json: @links.to_json(methods: [:user_name, :board_name, :time, :total_comments])
+      end
     end
   end
 
