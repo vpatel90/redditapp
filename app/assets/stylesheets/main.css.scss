@@ -4,29 +4,6 @@ body {
   flex-direction: column;
 }
 
-.page-header {
-  margin-top: 40px;
-  font-weight: lighter;
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-  cursor: default;
-}
-
-
-#links-body > .link-holder:first-child {
- transition: 1s ease;
- top: 0;
-}
-
-.add-border {
-  background-color: lighten(#26A69A, 45%);
-  overflow:hidden;
-  top: 100%;
-}
-
-
-
 .container {
   flex: 1 0 auto;
 }
@@ -80,7 +57,10 @@ body {
   width: 90%;
 }
 
-
+.page-header {
+  margin-top: 40px;
+  font-weight: lighter;
+}
 .logo-image{
   width: 50px;
 }
@@ -137,8 +117,4 @@ body {
 
 .profile {
   margin:0 auto;
-}
-
-.top-link {
-  margin-top: 15px;
 }

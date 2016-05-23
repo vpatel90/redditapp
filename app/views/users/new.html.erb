@@ -5,5 +5,10 @@
 <%= f.text_field :user_name%>
  <%= f.label :email %>
  <%= f.email_field :email %>
+  <%= f.label :password %>
+ <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+ <%= f.password_field :password_confirmation %>
+
  <%= f.submit "Sign Up", class: "waves-effect waves-light btn" %>
 <% end %>

@@ -11,7 +11,7 @@
 
 
 50.times do
-  User.create(user_name:Faker::Internet.user_name, email:Faker::Internet.email)
+  User.create(user_name:Faker::Internet.user_name, email:Faker::Internet.email, password:'password')
 end
 value = [1,1,1,-1]
 
